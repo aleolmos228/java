@@ -1,0 +1,55 @@
+import java.util.Arrays;
+
+
+// Haga un main, donde por parametro ponga 3 numeros y una letra que represente  ascendente o descendente y los muestre ordenados por tal criterio
+// Punto 1 -b por de a un numero
+public class guia4{
+
+	public static void main(String[] args) {
+
+		// Obtengo los 3 primeros numeros
+		int[] numeros= new int[3];
+		
+		System.out.println("Ingrese tres numeros\n");
+
+		// Ingreso por partes	
+		for(int i=0; i<numeros.length ;i++) {
+			numeros[i] = Integer.parseInt(args[0]);
+			System.out.println("Ingrese siguiente numero\n");
+		}		
+
+
+		//Elijo Orden
+		System.out.println("Ingrese orden");
+		char orden = args[args.length - 1].charAt(0);
+
+
+		int aux = 0;
+
+		//Ascendente o desendente
+		if (orden == 'A') {
+			for (int i = 0; i < numeros.length; i++) {
+				for (int j = i + 1; j < numeros.length; j++) {
+					if (numeros[i] > numeros[j]) {
+						aux = numeros[i];
+						numeros[i] = numeros[j];
+						numeros[j] = aux;
+					}
+				}
+			}
+		} else if (orden == 'D') { 
+			for (int i = 0; i < numeros.length; i++) {
+				for (int j = i + 1; j < numeros.length; j++) {
+					if (numeros[i] < numeros[j]) {
+						aux = numeros[i];
+						numeros[i] = numeros[j];
+						numeros[j] = aux;
+					}
+				}
+			}
+		}
+
+		System.out.print(Arrays.toString(numeros));
+
+	}
+}
